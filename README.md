@@ -45,23 +45,23 @@ php artisan serve
 
 ## Endpoints
 
-| Método | URI                  | Descrição                     |
-| ------ | ------               | ------                        |
-| GET    | /api/v1/paises       | Retorna todos os países       |
-| GET    | /api/v1/paises/{id}  | Retorna um país específico    |
-| POST   | /api/v1/paises       | Cria um novo país             |
-| PUT    | /api/v1/paises/{id}  | Atualiza um país específico   |
-| DELETE | /api/v1/paises/{id}  | Deleta um país específico     |
-| GET    | /api/v1/generos      | Retorna todos os gêneros      |
-| GET    | /api/v1/generos/{id} | Retorna um gênero específico  |
-| POST   | /api/v1/generos      | Cria um novo gênero           |
-| PUT    | /api/v1/generos/{id} | Atualiza um gênero específico |
-| DELETE | /api/v1/generos/{id} | Deleta um gênero específico   |
-| GET    | /api/v1/bandas       | Retorna todas as bandas       |
-| GET    | /api/v1/bandas/{id}  | Retorna uma banda específica  |
-| POST   | /api/v1/bandas       | Cria uma nova banda           |
-| PUT    | /api/v1/bandas/{id}  | Atualiza uma banda específica |
-| DELETE | /api/v1/bandas/{id}  | Deleta uma banda específica   |
+| Método | URI                  | Descrição                     | Dados                                                     |
+| ------ | ------               | ------                        | ------                                                    |
+| GET    | /api/v1/paises       | Retorna todos os países       |                                                           |
+| GET    | /api/v1/paises/{id}  | Retorna um país específico    | id (int)                                                  |
+| POST   | /api/v1/paises       | Cria um novo país             | name (string)                                             |
+| PUT    | /api/v1/paises/{id}  | Atualiza um país específico   | id (int), name (string)                                   |
+| DELETE | /api/v1/paises/{id}  | Deleta um país específico     | id (int)                                                  |
+| GET    | /api/v1/generos      | Retorna todos os gêneros      |                                                           |
+| GET    | /api/v1/generos/{id} | Retorna um gênero específico  | id (int)                                                  |
+| POST   | /api/v1/generos      | Cria um novo gênero           | name (string)                                             |
+| PUT    | /api/v1/generos/{id} | Atualiza um gênero específico | id (int), name (string)                                   |
+| DELETE | /api/v1/generos/{id} | Deleta um gênero específico   | id (int)                                                  |
+| GET    | /api/v1/bandas       | Retorna todas as bandas       |                                                           |
+| GET    | /api/v1/bandas/{id}  | Retorna uma banda específica  | id (int)                                                  |
+| POST   | /api/v1/bandas       | Cria uma nova banda           | name (string), country_id (int), genres (array)           |
+| PUT    | /api/v1/bandas/{id}  | Atualiza uma banda específica | id (int), name (string), country_id (int), genres (array) |
+| DELETE | /api/v1/bandas/{id}  | Deleta uma banda específica   | id (int)                                                  |
 
 ## Recursos para busca
 
