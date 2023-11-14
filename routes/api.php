@@ -25,3 +25,7 @@ Route::apiResource('v1/generos', \App\Http\Controllers\API\V1\GenreController::c
 Route::apiResource('v1/paises', \App\Http\Controllers\API\V1\CountryController::class)->parameters([
     'paises' => 'country'
 ]);
+
+Route::apiResource('v1/bandas', \App\Http\Controllers\API\V1\BandController::class)->parameters([
+    'bandas' => 'band'
+]);
