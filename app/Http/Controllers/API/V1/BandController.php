@@ -2,17 +2,21 @@
 
 namespace App\Http\Controllers\API\V1;
 
+use App\Actions\Generic\PaginateResultsByRequest;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\BandStoreRequest;
 use App\Http\Requests\BandUpdateRequest;
 use App\Http\Resources\API\V1\BandResource;
 use App\Models\Band;
+use Illuminate\Http\Request;
 
 class BandController extends Controller
 {
-    public function index()
+    public function index(Request $request, PaginateResultsByRequest $paginator)
     {
-        return BandResource::collection(Band::paginate());
+        $bands = $paginator->execute($request, Band::class);
+
+        return BandResource::collection($bands);
     }
 
     public function store(BandStoreRequest $request)

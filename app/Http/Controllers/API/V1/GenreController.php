@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\API\V1;
 
+use App\Actions\Generic\PaginateResultsByRequest;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\GenreStoreRequest;
 use App\Http\Requests\GenreUpdateRequest;
@@ -11,9 +12,11 @@ use Illuminate\Http\Request;
 
 class GenreController extends Controller
 {
-    public function index()
+    public function index(Request $request, PaginateResultsByRequest $paginator)
     {
-        return GenreResource::collection(Genre::paginate());
+        $genres = $paginator->execute($request, Genre::class);
+
+        return GenreResource::collection($genres);
     }
 
     public function show(Genre $genre)

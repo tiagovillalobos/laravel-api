@@ -2,17 +2,21 @@
 
 namespace App\Http\Controllers\API\V1;
 
+use App\Actions\Generic\PaginateResultsByRequest;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CountryStoreRequest;
 use App\Http\Requests\CountryUpdateRequest;
 use App\Http\Resources\API\V1\CountryResource;
 use App\Models\Country;
+use Illuminate\Http\Request;
 
 class CountryController extends Controller
 {
-    public function index()
+    public function index(Request $request, PaginateResultsByRequest $paginator)
     {
-        return CountryResource::collection(Country::paginate());
+        $countries = $paginator->execute($request, Country::class);
+
+        return CountryResource::collection($countries);
     }
 
     public function store(CountryStoreRequest $request)

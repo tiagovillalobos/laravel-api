@@ -2,9 +2,12 @@
 
 namespace App\Models;
 
+use App\Support\ScopeByName;
 use Illuminate\Database\Eloquent\Model;
 
 class Genre extends Model
 {
-    protected $fillable = ['name'];    
+    use ScopeByName;
+
+    protected $fillable = ['name'];
 }
