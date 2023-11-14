@@ -23,9 +23,7 @@ class GenreController extends Controller
 
     public function store(GenreStoreRequest $request)
     {
-        $genre = Genre::create([
-            'name' => $request->name
-        ]);
+        $genre = Genre::create($request->validated());
 
         return response()->json(
             new GenreResource($genre),
@@ -35,9 +33,7 @@ class GenreController extends Controller
 
     public function update(GenreUpdateRequest $request, Genre $genre)
     {
-        $genre->update([
-            'name' => $request->name
-        ]);
+        $genre->update($request->validated());
 
         return response()->json(
             new GenreResource($genre)
