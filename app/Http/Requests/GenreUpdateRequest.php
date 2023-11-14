@@ -2,21 +2,19 @@
 
 namespace App\Http\Requests;
 
+use App\Support\FailedValidation;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 
 class GenreUpdateRequest extends FormRequest
 {
+    use FailedValidation;
+    
     public function authorize(): bool
     {
         return true;
     }
 
-    /**
-     * Get the validation rules that apply to the request.
-     *
-     * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
-     */
     public function rules(): array
     {
         return [
@@ -32,16 +30,5 @@ class GenreUpdateRequest extends FormRequest
             'name.max' => 'O campo nome deve ter no máximo 100 caracteres.',
             'name.unique' => 'O campo nome deve ser único.'
         ];
-    }
-
-    protected function failedValidation(Validator $validator)
-    {
-        throw new \Illuminate\Validation\ValidationException(
-            $validator,
-            response()->json(
-                $validator->errors(),
-                422
-            )
-        );
     }
 }

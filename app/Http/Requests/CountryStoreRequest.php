@@ -6,7 +6,7 @@ use App\Support\FailedValidation;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 
-class GenreStoreRequest extends FormRequest
+class CountryStoreRequest extends FormRequest
 {
     use FailedValidation;
 
@@ -18,7 +18,7 @@ class GenreStoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => ['required', 'string', 'max:100', 'unique:genres']
+            'name' => ['required', 'string', 'max:100', 'unique:countries']
         ];
     }
 
